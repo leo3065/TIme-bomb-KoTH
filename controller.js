@@ -18,6 +18,10 @@ export function runGame(bots, n=1000){
     let numbers = []
     for(let [i, bot] of bots.entries()){
       let number = bot.run(prev_numbers, prev_points[i])
+      //console.log(bot.name, number)
+      if (typeof number === 'number') {
+        number = Math.round(number)
+      }
       if(!(Number.isInteger(number))){
         number = upperbound
       }
