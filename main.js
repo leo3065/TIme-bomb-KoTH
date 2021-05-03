@@ -84,6 +84,12 @@ const bots = [
       return 1 + Math.random() * Math.floor(Math.random() * 5);
     }
   },
+  {
+    name: "Coinflipper",
+    run(numbers) {
+      return Math.floor(Math.random()*2)+1;
+    }
+  },
 ]
 
 let total_scores = new Array(bots.length).fill(0)
