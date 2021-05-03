@@ -83,11 +83,18 @@ const bots = [
     run(numbers) {
       return 1 + Math.random() * Math.floor(Math.random() * 5);
     }
-  },
-  {
+  },{
     name: "Coinflipper",
     run(numbers) {
-      return Math.floor(Math.random()*2)+1;
+      let x = Math.floor(numbers.length/2);
+      numbers.forEach(function(){
+          let coin = (Math.floor(Math.random()*2)+1)
+          if (coin==1) { x--; }
+          else if (coin==2) { x++; }
+          if (x<0) { x=0; }
+          if (x>numbers.length) { x=numbers.length; }
+      });
+      return x;
     }
   },
   {
