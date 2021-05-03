@@ -73,7 +73,17 @@ const bots = [
       var random_int = Math.floor(Math.random() * 3 * (numbers.length+1)/4);
       return random_int
     }
-  }
+  },
+  {
+    name: "Painfully Average",
+    run: (n)=>Math.abs(Math.floor(n.reduce((a,x)=>a+x))/n.length-1)
+  },
+  {
+    name: "OnePlus",
+    run(numbers) {
+      return 1 + Math.random() * Math.floor(Math.random() * 5);
+    }
+  },
 ]
 
 let total_scores = new Array(bots.length).fill(0)
