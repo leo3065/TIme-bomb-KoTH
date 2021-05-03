@@ -90,6 +90,12 @@ const bots = [
       return Math.floor(Math.random()*2)+1;
     }
   },
+  {
+    name: "D8roller",
+    run(numbers) {
+      return Math.floor(Math.random()*8)+1;
+    }
+  },
 ]
 
 let total_scores = new Array(bots.length).fill(0)
