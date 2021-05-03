@@ -58,6 +58,14 @@ const bots = [
       this.round++
       return (this.round % 2)? 1 : (numbers.length + 1)
     }
+  },
+
+  // submittions
+  {
+    name: "Playing It Safe",
+    run(numbers) {
+      return 1;
+    }
   }
 ]
 
