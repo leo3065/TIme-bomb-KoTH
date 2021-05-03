@@ -1,6 +1,6 @@
 import {runGame, printScores, sum} from "./controller.js"
 
-// this will be replaced by the secret seed
+// the whole seed will be replaced by the secret seed for the final ranking
 let seed = "" + Date()
 Math.seedrandom(seed,{"global": true})
 
