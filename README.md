@@ -1,6 +1,6 @@
 # Time bomb KoTH
 
-[tag:king-of-the-hill][tag:javascript]
+This is the code for [this challenge](https://codegolf.stackexchange.com/questions/224969/time-bomb-koth). 
 
 In this challenge, players need to temper with a time bomb as late as possible without getting blasted in the face.
 
@@ -17,7 +17,7 @@ The bot is asked to play an integer between 1 to `N` inclusive. After all bots p
 
 After the bomb exploded, the round ends, and the points for this round is calculated as the following: 
 
-- Bots that played before the explosion get the number of points equal to twice the number it played this round.
+- Bots that played before the explosion get the number of points equal to **twice** the number it played this round.
 - Bots that played when the explosion lose the number of points equal to the number it played this round.
 - Bots that played after the explosion do not get nor receive point.
 
@@ -39,10 +39,12 @@ On the first round, the array of numbers given will be initialized with random n
 ## Other rules
 
 - Storing data in your bot's properties is allowed.
-- You can use the `Math.random` method. During scoring, [seedrandom.min.js](http://davidbau.com/archives/2010/01/30/random_seeds_coded_hints_and_quintillions.html) will be used, with a secret string concatenated with the run number as the seed for each run.
+- You can use the `Math.random` method. During scoring, [seedrandom.min.js](http://davidbau.com/archives/2010/01/30/random_seeds_coded_hints_and_quintillions.html) will be used, with a secret string concatenated with the run number as the seed for each run. The md5 of the secret string is `4311868bf10b3f7c1782982e68e6d7ca`, for proving that I didn't change the key after the challenge. 
 - You can use the helper function `sum`.
 - Trying to access any other variables outside your bot's own properties is forbidden.
 - [Standard loopholes apply.](https://codegolf.meta.stackexchange.com/questions/1061/loopholes-that-are-forbidden-by-default)
+
+The code for controller can be found [here](https://github.com/leo3065/TIme-bomb-KoTH). Feel free to point out mistakes in my code, thanks. 
 
 ## Example bots
 
@@ -52,7 +54,7 @@ On the first round, the array of numbers given will be initialized with random n
   // It always play the middle number.
   name: "Middle", 
   run(number) {
-    return Math.round((numbers.length+1)/2);
+    return Math.round((numbers.length+2)/2);
   }
 }
 ```
@@ -67,7 +69,7 @@ On the first round, the array of numbers given will be initialized with random n
   run(numbers, points) {
     var own = this.last;
     if(points > 0){
-      own = Math.min(this.last+1,this.numbers);
+      own = Math.min(this.last+1, numbers.length+1);
     }
     if(points < 0){
       own = 1;
@@ -77,3 +79,8 @@ On the first round, the array of numbers given will be initialized with random n
   }
 }
 ```
+
+Both example bots above will also play in the game.
+
+# Submissions are due by 2021-05-06 12:00 UTC, but might be lenient depending on when I'm online after the said time above.
+
