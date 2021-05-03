@@ -31,6 +31,34 @@ const bots = [
       return own;
     }
   },
+
+  // "testing" bots
+  {
+    name: "33%",
+    run(numbers) {
+      return numbers[Math.floor(numbers.length/3)];
+    }
+  },
+  {
+    name: "Pure random",
+    run(numbers) {
+      return Math.floor(Math.random() * (numbers.length+1))+1;
+    }
+  },
+  {
+    name: "Copy random",
+    run(numbers) {
+      return numbers[Math.floor(Math.random() * numbers.length)];
+    }
+  },
+  {
+    name: "Alternate",
+    round: 0,
+    run(numbers) {
+      this.round++
+      return (this.round % 2)? 1 : (numbers.length + 1)
+    }
+  }
 ]
 
 let total_scores = new Array(bots.length).fill(0)
