@@ -66,6 +66,13 @@ const bots = [
     run(numbers) {
       return 1;
     }
+  },
+  {
+    name: "Smart Random", 
+    run(numbers) {
+      var random_int = Math.floor(Math.random() * 3 * (numbers.length+1)/4);
+      return random_int
+    }
   }
 ]
 
